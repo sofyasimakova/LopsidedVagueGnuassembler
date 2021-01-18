@@ -2,20 +2,24 @@
 #include <cmath>
 using namespace std;
 
-// declaration of function "is in the circle or not"
-int distance_circle (float);
 
-// definition of function 'distance_circle'
-int distance_circle (float x, float y, float r,float x1, float x2){
-  float z = sqrt((x-x1)*(x-x1)+(y-x2)*(y-x2));
+double dist (double x, double y,double x1, double x2){
+  return sqrt((x-x1)*(x-x1)+(y-x2)*(y-x2));
 }
 
 int main (){
-  float x, y, r, x1, x2;
-  cout << "x, y, r, x1, x2";
-  cin >> x >> y >> r >> x1 >> x2;
+  double x, y, x1, x2, r;
+  cout << "Enter coordinates of the center of the circle: ";
+  cin >> x >> y;
 
-  if (distance_circle(x, y, r, x1, x2) <= r){
+  cout << "Enter radius of the circle: ";
+  cin >> r;
+
+  cout << "Enter the coordinates of a point: ";
+  cin >> x1 >> x2;
+
+
+  if (dist(x, y, r, x1, x2) <= r){
     cout << "The point is inside the circle";
   }
   else{
@@ -23,4 +27,3 @@ int main (){
   }
   return 0;
 }
-
