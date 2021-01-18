@@ -1,31 +1,29 @@
-// Position of a moving body
-
 #include <iostream>
 #include <cmath>
 using namespace std;
 
-// Declaration of function
-int moving_function (int, int, int, int, int);
-
-int moving_function (int x, int v, int a, int t, int r)
+double position (double x0, double v, double a, double t, int r)
 {
-    int d;
+    int current;
     for (int i=0; i<=r; i=i+t)
-        int d = x + v * i + 1/2*a*(i*i);
-        return d;
+        int current = x0 + v * i + 1/2*a*(i*i);
+        return current;
 }
 
 int main ()
 {
-    int x, v, a, t, r;
+    int x0, v, a, delta, r;
     
-    cout << "enter initial position, speed, acceleration";
-    cin >> x >> v >> a;
-    cout << "how many times you display the position?"<< endl;
+    cout << "enter the initial position, the speed and the acceleration: ";
+    cin >> x0 >> v >> a;
+    cout << "how many times you want to display the position of the moving body? "<< endl;
     cin >> r;
-    cout << "how often you want an update of position?";
-    cin >> t;
+    cout << "how often (in seconds) you want to update the position of the moving object? ";
+    cin >> delta;
 
-    moving_function(x,v,a,t,r);
+    position(x0,v,a,delta,r);
+
 return 0;
 }
+
+//I was unable to finish this one
