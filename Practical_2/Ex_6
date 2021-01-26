@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int num_of_recursions;
+
+long int fib(int x){ 
+    
+    long long int f_2 = 0, f_1 = 1; 
+    
+    if (x==0 or x==1)
+        return x;
+    else{
+        f = (fib(x-1) + fib(x-2)); 
+        num_of_recursions++; 
+        }
+    return 0;
+}
+
+int main(){
+    int a; 
+    int b;
+    cout << "Enter a number: ";
+    cin >> b;
+    
+    a = fib(b);
+    cout << "The Fibonacci is: " << a << endl; 
+    cout << "The number of recursions: " << num_of_recursions << endl;
+    return 0;
+}
