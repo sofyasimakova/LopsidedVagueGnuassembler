@@ -1,0 +1,21 @@
+// function that populates a matrix m of size l1xl2 with reals randomly generated in range [min,max]
+void random_double_matrix(double m[][max_size], int l1, int l2, double min, double max) 
+{
+int i1,i2;
+for ( i1 =0;i1<l1;i1++)
+  for ( i2 =0;i2<l2;i2++)
+  m[i1 ][ i2 ]=min+(max−min)∗(double)rand()/RAND_MAX;
+}
+// function that prints a matrix m with size l1xl2 of reals o
+void print_double_matrix(double m[][max_size], int l1, int l2) 
+{
+  int i1,i2;
+  cout << "Matrix␣of␣reals␣is:" << endl; 
+  for ( i1 =0;i1<l1;i1++)
+  {
+    for ( i2 =0;i2<l2;i2++)
+      cout << m[i1][i2] << "␣";
+    cout << endl; 
+  }
+  cout << endl; 
+}

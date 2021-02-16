@@ -1,0 +1,14 @@
+// function that sort an array v passed as arguement (using selection sort)
+int selection_sort(int v [], int s){
+  int imin; // index of minimum
+  int tmp; // temporary variable
+  for(int i=0;i<s−1;i++){
+    imin=search_min(v, s, i, s−1); // find the minimum between i and s−1 element
+    if (v[imin]<v[i]){ // if necessary swap the min with the i−th element
+      tmp=v[i];
+      v[ i]=v[imin];
+      v[imin]=tmp;
+    }
+  }
+  return 0;
+}

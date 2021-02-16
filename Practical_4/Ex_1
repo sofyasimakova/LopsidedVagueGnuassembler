@@ -1,8 +1,9 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-double * read_poly(int &n){
-  cout << "il grado: ";
+double* read_poly1(int &n){ 
+  cout << "Degree of polynomial 1: ";
   cin >> n;
   double * c=new double[n+1];
   for(int i=0;i<=n;i++){
@@ -11,6 +12,18 @@ double * read_poly(int &n){
   }
   return c;
 }
+
+double* read_poly2(int &n){
+  cout << "Degree of polynomial 2: ";
+  cin >> n;
+  double * c=new double[n+1];
+  for(int i=0;i<=n;i++){
+    cout << "coefficient of degree " << i << ": ";
+    cin >> c[i];
+  }
+  return c;
+}
+
 
 void print_poly(double *c, int n){
   int i;
@@ -24,14 +37,104 @@ void print_poly(double *c, int n){
   cout << endl;
 }
 
+double value_at_x(double *c, int n, double x){
+    int i = 0;
+    double j = 0;
+    while(i<=n){
+        j+= c[i] * pow(x, i);
+        i++;
+    }
+    return j;
+}
+
+
+double * poly_sum (double * p1, int d1, double * p2, int d2, int & dr){ 
+    if(d1==d2){
+        dr = d1; 
+        double* c = new double [d1+1]; 
+        for(int i = 0; i<=dr; i++){
+            c[i] = p1[i] + p2[i];         }
+        return c;
+    }
+    else if(d1<d2){ 
+        dr = d2; 
+        double* c = new double [d2+1]; 
+        for(int i = 0; i<=dr; i++){
+            if(i<=d1){
+                c[i] = p1[i] + p2[i]; 
+            }
+	else{
+                c[i] = p2[i];
+            }
+        }
+        return c;
+    }
+    else{
+        dr = d1; 
+        double* c = new double [d1+1]; 
+        for(int i=0; i<=dr; i++){
+            if(i<=d2){
+                c[i] = p1[i] + p2[i]; 
+            }
+        else{
+                c[i] = p1[i];
+            }
+        }
+        return c;
+    }
+}
+
+double * poly_product(double * p1, int d1, double * p2, int d2, int & dr){
+    dr = d1 + d2;
+    double *c = new double[dr+1];
+    for(int i = 0; i<=dr; i++){
+        c[i] = 0;
+    }
+    
+    for(int i=0; i<=d1; i++){
+        for (int j=0; j<=d2; j++){
+            c[i+j] += p1[i] * p2[j];
+        }
+    }
+    return c; 
+}
+
 int main()
 {
-  double *p1;
-  int g1;
+    double *p1, *p2, *p3, *p4;   
+    int d1, d2, d3, d4; 
+    double x, value; 
 
-  p1=read_poly(g1);
-  print_poly(p1,g1);
+    p1=read_poly1(d1);    
+    p2=read_poly2(d2); 
 
-  delete[] p1;
-  return 0;
+    p3=poly_sum(p1,d1,p2,d2,d3); 
+    p4=poly_product(p1,d1,p2,d2,d4);
+    
+    cout << "Enter a value for x: ";
+    cin >> x;
+    value = value_at_x(p1,d1, x); 
+
+
+    cout << "Polynomial 1: ";
+    print_poly(p1,d1); 
+    cout << endl;
+    cout << "Polynomial 2: ";
+    print_poly(p2,d2); 
+    cout << endl;
+    cout << "The sum of the two polynomials is: ";
+    print_poly(p3,d3); 
+    cout << "The product of the two polynomials is: ";
+    print_poly(p4,d4); 
+    
+    cout << "First polynomial value at " << x << " is: " << value << endl;
+    
+    value = value_at_x(p2,d2, x); 
+    cout << "Second polynomial value at " << x << " is: " << value << endl;
+    
+    delete[] p1; 
+    delete[] p2; 
+    delete[] p3;
+    delete[] p4;
+    return 0;
 }

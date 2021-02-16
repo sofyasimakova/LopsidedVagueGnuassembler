@@ -1,0 +1,14 @@
+// product matrix vector
+int matrix_vector_product(double m[][max_size], int s1, int s2, double v1 [], int l1 , double v2 [], int l2){
+ if (s2!=l1 || s1!=l2) return 1; // incompatible dimensions
+ int i1 , i2 ;
+ double s;
+ for(i1=0;i1<l2;i1++)
+ {
+   s=0.0;
+   for(i2=0;i2<l1;i2++)
+     s+=m[i1][i2]v1[i2 ];
+   v2[i1]=s;
+ }
+ return 0;
+ }

@@ -1,0 +1,15 @@
+// product vector matrix: result of multiplication of matrices m1 and m2 is stored in matrix m3
+int matrix_matrix_product(double m1[][max_size], int s11, int s12, double m2[][max_size], int s21, int s22,
+261 double m3[][max_size], int s31, int s32){
+ if (s12!=s21||s11!=s31||s22!=s32) return 1; // incompatible dimensions
+ int i1 , i2 , i3 ;
+ double s;
+ for(i1=0;i1<s31;i1++) // span through m3 rows
+   for(i2=0;i2<s32;i2++) // span through m3 columns {
+     s=0.0;
+     for(i3=0;i3<s12;i3++)
+       s+=m1[i1][i3]m2[i3][i2 ]; // adds up the m1−m2 row−column products
+     m3[i1][ i2]=s; // store product of i1−th row of m1 with i2−th column of m2 in m3
+   }
+  return 0;
+}

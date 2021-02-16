@@ -1,0 +1,5 @@
+// function that populates a vector v of size l with reals randomly generated in range [min,max]
+void random_double_vector(double v[], int l, double min, double max){ 
+  for(int i1=0;i1<l;i1++)
+    v[i1]=min+(max−min)∗(double)rand()/RAND_MAX;
+}

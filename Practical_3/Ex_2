@@ -1,0 +1,5 @@
+// function that populates a vector v of size l with integers randomly generated in range [min,max]
+void random_int_vector(int v[], int l , int min, int max){ 
+  for(int i1=0;i1<l;i1++)
+    v[i1]=min+rand()%(max−min+1);
+}

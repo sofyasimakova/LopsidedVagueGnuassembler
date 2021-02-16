@@ -1,0 +1,36 @@
+// function that sum vector v1 with vector v2 and stores result in vector v3
+int vector_sum(double v1[], int s1, double v2 [], int s2, double v3 [], int s3){
+  if (s1!=s2 || s1!=s3) // incompatible sizes
+    return 1;
+  for(int i=0;i<s1;i++)
+    v3[i]=v1[i]+v2[i ]; // sum i−th elements of v1 and v2 and store it in v3
+  return 0;
+}
+
+// function that subtracts vector v1 from vector v2 and stores result in vector v3
+int vector_diff(double v1 [], int s1, double v2 [], int s2, double v3 [], int s3){
+  if (s1!=s2 || s1!=s3) // incompatible sizes
+    return 1;
+  for(int i=0;i<s1;i++)
+    v3[i]=v1[i]−v2[i ]; // difference of i−th elements of v1 and v2 and store it in v3
+  return 0;
+}
+
+// function that multiplies a vector v1 by a scalar s and stores result in vector v3
+int scalar_vector_prod(double v1[], int s1, double s, double v3 [], int s3){
+  if (s1!=s3) // incompatible sizes
+    return 1;
+  for(int i=0;i<s1;i++)
+    v3[i]=sv1[i ]; // multiplies the i−th elements of v1 by s and store it in v3
+  return 0;
+}
+
+// function that perform the scalar product vector v1 with vector v2 and stores result in vector v3
+double vector_scalar_prod(double v1[], int s1, double v2 [], int s2){
+  if (s1!=s2) // incompatible sizes
+    return −1;
+  double sp=0;
+  for(int i=0;i<s1;i++)
+    sp+=v1[i]v2[i]; // adds up the product of i−th elements of v1 and v2
+  return sp;
+}

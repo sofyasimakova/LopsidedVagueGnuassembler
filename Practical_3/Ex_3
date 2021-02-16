@@ -1,0 +1,7 @@
+// function that prints and array v of reals of size l
+void print_double_vector(double v[], int l ){
+  cout << "Vector␣of␣reals␣is:␣" << endl << "{"; 
+  for(int i1=0;i1<l−1;i1++)
+    cout << v[i1] << ",␣␣";
+  cout << v[l−1]<< "}" << endl << endl;
+}

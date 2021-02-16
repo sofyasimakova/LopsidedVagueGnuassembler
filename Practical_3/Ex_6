@@ -1,0 +1,17 @@
+// function that returns the index of the minimal elements in sub−vector between index l and h
+int search_min(int v[], int n, int l , int h){
+
+  if ( l>h || l>=n || h>=n || l<0){
+    cout << " worong selection of sub−vector to search min" << endl;
+    return −1;
+  }
+
+  int min = v[l]; // set min to l−th element
+  int imin = l; // set index of min to l
+  for(int i=l+1;i<h;i++)
+    if (v[ i]<min){ // if i−th element is smaller than min
+      min=v[i]; // update min
+      imin=i; // update index of min
+    }
+  return imin;
+}
